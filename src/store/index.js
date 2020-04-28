@@ -3,6 +3,10 @@ import thunk from 'redux-thunk';
 import reducers from './reducers';
 
 // eslint-disable-next-line no-underscore-dangle
-const devtools = () => window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers, composeEnhancers(
+    applyMiddleware(thunk)
+));
 
-export default createStore(reducers, compose(applyMiddleware(thunk), devtools()));
+
+export default store;
