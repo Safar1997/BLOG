@@ -29,14 +29,14 @@ const UserProfile = () => {
           dispatch(actions.articlesAction({ author: user.username }));
         }}
       >
-        Показать мои статьи
+        Show my articles
       </Button>
       <Button
         style={{ marginTop: '20px', width: '100%' }}
         type="primary"
         onClick={() => dispatch(actions.articlesAction({ limit: pageSize }))}
       >
-        Показать все статьи
+        Show all articles
       </Button>
       <Button
         style={{ marginTop: '20px', width: '100%' }}
@@ -45,14 +45,14 @@ const UserProfile = () => {
           dispatch(actions.articlesAction({ limit: pageSize, favorited: user.username }))
         }
       >
-        Показать понравившиеся
+        Show liked
       </Button>
       <Button
         style={{ marginTop: '20px', width: '100%' }}
         type="primary"
         onClick={() => history.push('/add')}
       >
-        Добавить новую статью
+        Add new article
       </Button>
     </Card>
   );

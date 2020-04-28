@@ -6,6 +6,7 @@ const SignUp = () => {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'white',
   };
   return (
     <div style={styles}>

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { formatDistance } from 'date-fns';
 import { useSelector } from 'react-redux';
-import ruLocale from 'date-fns/locale/ru';
 import { Card, Tag } from 'antd';
 import ArticleActions from '../components/ArticleActions';
 
@@ -15,9 +14,7 @@ const Article = ({ match }) => {
     user: state.user.user,
   }));
   const { author = {} } = article;
-  const formattedDate = formatDistance(new Date(article.createdAt || 0), new Date(), {
-    locale: ruLocale,
-  });
+  const formattedDate = formatDistance(new Date(article.createdAt || 0), new Date());
 
   const tags = article.tagList && article.tagList.map(tag => <Tag key={tag}>{tag}</Tag>);
 
@@ -29,8 +26,8 @@ const Article = ({ match }) => {
         extra={<ArticleActions article={article} user={user} />}
       >
         <p style={{ minHeight: '200px' }}>{article.body}</p>
-        <Meta description={`Создана ${formattedDate} назад. Автор - ${author.username}`} />
-        {tags && tags.length > 0 && <p>Тэги: {tags}</p>}
+        <Meta description={`Created ${formattedDate} ago. Author - ${author.username}`} />
+        {tags && tags.length > 0 && <p>Tags: {tags}</p>}
       </Card>
     </div>
   );

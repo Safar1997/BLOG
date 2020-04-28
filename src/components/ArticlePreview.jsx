@@ -26,7 +26,7 @@ const ArticlePreview = ({ article }) => {
       <Meta description={`Author ${author.username}`} />
       {tagList.length > 0 && (
         <p>
-          Тэги:
+          Tags:
           {tagList.map(tag => (
             <Tag key={_.uniqueId()}>{tag}</Tag>
           ))}

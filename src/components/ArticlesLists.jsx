@@ -21,6 +21,7 @@ const ArticlesList = () => {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
     gridGap: '10px',
+    backgroundColor: 'white', 
   };
 
   return isLoading ? (
