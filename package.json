@@ -2,6 +2,7 @@
   "name": "my-blog",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://Safar1997.github.io/BLOG",
   "dependencies": {
     "@ant-design/icons": "^4.0.6",
     "@testing-library/jest-dom": "^4.2.4",

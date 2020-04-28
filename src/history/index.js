@@ -1,3 +1,3 @@
 import { createBrowserHistory } from 'history';
 
-export default createBrowserHistory({ basename: '/ultraBlog' });
+export default createBrowserHistory({ basename: '/BLOG' });
