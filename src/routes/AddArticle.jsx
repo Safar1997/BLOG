@@ -13,6 +13,7 @@ const AddArticle = () => {
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: '100px',
+    backgroundColor: 'white',
   };
 
   return (

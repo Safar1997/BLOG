@@ -134,7 +134,7 @@ const MyFormikForm = withFormik({
       title: initialValues.title || title || '',
       description: initialValues.description || description || '',
       body: initialValues.body || body || '',
-      tagList: initialValues.tagList || tagList || [''],
+      tagList: initialValues.tagList || tagList || [],
     };
   },
   validationSchema: Yup.object().shape({

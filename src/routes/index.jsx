@@ -1,7 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Redirect, Switch, Route } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import { Layout } from 'antd';
 import Navbar from '../components/Navigation';
 import Home from './Home';
@@ -13,25 +11,9 @@ import AddArticle from './AddArticle';
 
 const { Header, Content } = Layout;
 
-const ConditionalRoute = ({ component: Comp, pathToRedirect, conditionFunc, ...rest }) => {
-  return (
-    <Route
-      {...rest}
-      render={props => (conditionFunc() ? <Comp {...props} /> : <Redirect to={pathToRedirect} />)}
-    />
-  );
-};
-
-ConditionalRoute.propTypes = {
-  component: PropTypes.instanceOf(Object).isRequired,
-  pathToRedirect: PropTypes.string.isRequired,
-  conditionFunc: PropTypes.func.isRequired,
-};
-
 const Routes = () => {
-  const { loggedIn } = useSelector(state => state.user);
   return (
-    <Layout className="layout" style={{ maxWidth: '1440px' }}>
+    <Layout className="layout" style={{ maxWidth: '1440px', backgroundColor: 'white' }}>
       <Header>
         <div className="logo" />
         <Navbar />
@@ -41,18 +23,8 @@ const Routes = () => {
           <Route exact path="/">
             <Redirect to="/home" />
           </Route>
-          <ConditionalRoute
-            path="/add"
-            component={AddArticle}
-            pathToRedirect="/login"
-            conditionFunc={() => loggedIn}
-          />
-          <ConditionalRoute
-            path="/articles/:slug/edit"
-            component={ArticleEdit}
-            pathToRedirect="/login"
-            conditionFunc={() => loggedIn}
-          />
+          <Route path="/add" component={AddArticle} />
+          <Route path="/articles/:slug/edit" component={ArticleEdit} />
           <Route path="/home" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
