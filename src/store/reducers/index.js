@@ -5,8 +5,8 @@ import userReducer from './userReducer';
 import errorsReducer from './errorsReducer';
 
 export default combineReducers({
-  user: userReducer,
+  userParametrs: userReducer,
   errors: errorsReducer,
-  articles: articlesReducer,
+  articlesParametrs: articlesReducer,
   pageSettings: pageSettingsReducer,
 });

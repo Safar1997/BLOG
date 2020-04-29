@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { logout, articlesAction } from '../store/actions';
 
 const Navigation = props => {
-  const { loggedIn } = useSelector(state => state.user);
+  const { loggedIn } = useSelector(state => state.userParametrs);
   const dispatch = useDispatch();
 
   const handleLogoutClick = () => {

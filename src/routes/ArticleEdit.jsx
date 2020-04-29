@@ -9,9 +9,9 @@ import { editArticleAction } from '../store/actions';
 const ArticleEdit = ({ match }) => {
   const { slug } = match.params;
   const dispatch = useDispatch();
-  const { article, isLoading } = useSelector(state => ({
-    article: state.articles.articles.find(item => item.slug === slug),
-    isLoading: state.articles.isLoading,
+  const { article, isLoading } = useSelector(({ articlesParametrs }) => ({
+    article: articlesParametrs.articles.find(item => item.slug === slug),
+    isLoading: articlesParametrs.isLoading,
   }));
   const actionToDispatch = values => dispatch(editArticleAction(slug, values));
   // const storageArticle = JSON.parse(localStorage.getItem('openedArticle')); = isEmpty(article) ? storageArticle :

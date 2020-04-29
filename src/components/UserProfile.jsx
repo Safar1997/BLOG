@@ -8,10 +8,10 @@ import { UserOutlined } from '@ant-design/icons';
 const { Meta } = Card;
 
 const UserProfile = () => {
-  const { pageSize, user } = useSelector(state => ({
-    pageSize: state.pageSettings.pageSize,
-    params: state.articles.params,
-    user: state.user.user,
+  const { pageSize, user } = useSelector(({ pageSettings, articlesParametrs, userParametrs }) => ({
+    pageSize: pageSettings.pageSize,
+    params: articlesParametrs.params,
+    user: userParametrs.user,
   }));
   const dispatch = useDispatch();
 

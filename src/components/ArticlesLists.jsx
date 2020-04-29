@@ -11,9 +11,9 @@ const ArticlesList = () => {
     articlesAction({ limit: 10 })(dispatch);
   }, []);
 
-  const { articles, isLoading } = useSelector(state => ({
-    articles: state.articles.articles,
-    isLoading: state.articles.isLoading,
+  const { articles, isLoading } = useSelector(({ articlesParametrs }) => ({
+    articles: articlesParametrs.articles,
+    isLoading: articlesParametrs.isLoading,
   }));
 
   const list = articles.map(article => <ArticlePreview key={article.slug} article={article} />);

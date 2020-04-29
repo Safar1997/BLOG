@@ -9,9 +9,9 @@ const { Meta } = Card;
 
 const Article = ({ match }) => {
   const { slug } = match.params;
-  const { user, article = {} } = useSelector(state => ({
-    article: state.articles.articles.find(item => item.slug === slug) || {},
-    user: state.user.user,
+  const { user, article = {} } = useSelector(({ articlesParametrs, userParametrs }) => ({
+    article: articlesParametrs.articles.find(item => item.slug === slug) || {},
+    user: userParametrs.user,
   }));
   const { author = {} } = article;
   const formattedDate = formatDistance(new Date(article.createdAt || 0), new Date());

@@ -6,14 +6,14 @@ import { articlesAction, changePageAction } from '../store/actions';
 import UserProfile from '../components/UserProfile';
 
 const Home = () => {
-  const { loggedIn } = useSelector(state => state.user);
+  const { loggedIn } = useSelector(state => state.userParametrs);
   const dispatch = useDispatch();
-  const { currentPage, pageSize, articlesCount, params } = useSelector(state => ({
-    articles: state.articles.articles,
-    articlesCount: state.articles.articlesCount,
-    currentPage: state.pageSettings.currentPage,
-    pageSize: state.pageSettings.pageSize,
-    params: state.articles.params,
+  const { currentPage, pageSize, articlesCount, params } = useSelector(({ articlesParametrs, pageSettings }) => ({
+    articles: articlesParametrs.articles,
+    articlesCount: articlesParametrs.articlesCount,
+    currentPage: pageSettings.currentPage,
+    pageSize: pageSettings.pageSize,
+    params: articlesParametrs.params,
   }));
 
   useEffect(() => {
