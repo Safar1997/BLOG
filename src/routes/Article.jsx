@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { formatDistance } from 'date-fns';
 import { useSelector } from 'react-redux';
 import { Card, Tag } from 'antd';
-import ArticleActions from '../components/ArticleActions';
+import ArticleActions from '../components/ArticleControlPanel';
 
 const { Meta } = Card;
 

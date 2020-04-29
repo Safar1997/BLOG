@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Spin } from 'antd';
 import ArticlePreview from './ArticlePreview';
-import * as actions from '../store/actions';
+import { articlesAction } from '../store/actions';
 
 const ArticlesList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    actions.articlesAction({ limit: 10 })(dispatch);
+    articlesAction({ limit: 10 })(dispatch);
   }, []);
 
   const { articles, isLoading } = useSelector(state => ({

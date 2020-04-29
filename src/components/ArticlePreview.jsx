@@ -13,13 +13,13 @@ const ArticlePreview = ({ article }) => {
   const { title, author, description, createdAt, slug, tagList } = article;
   const formattedDate = formatDistance(new Date(createdAt), new Date());
 
-  const readMore = () => {
-    localStorage.setItem('openedArticle', JSON.stringify(article));
-  };
+  // const readMore = () => {
+  //   localStorage.setItem('openedArticle', JSON.stringify(article));
+  // }; onClick={readMore}
   return (
     <Card hoverable title={title} extra={<Like article={article} />}>
       <p>{description}</p>
-      <Link to={`/articles/${slug}`} onClick={readMore}>
+      <Link to={`/articles/${slug}`}>
         Read more...
       </Link>
       <Meta description={`Created ${formattedDate} ago`} />

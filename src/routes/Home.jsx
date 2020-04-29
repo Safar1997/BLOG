@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Pagination } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import ArticlesList from '../components/ArticlesLists';
-import * as actions from '../store/actions';
+import { articlesAction, changePageAction } from '../store/actions';
 import UserProfile from '../components/UserProfile';
 
 const Home = () => {
@@ -17,12 +17,12 @@ const Home = () => {
   }));
 
   useEffect(() => {
-    dispatch(actions.articlesAction({ limit: 10 }));
+    dispatch(articlesAction({ limit: 10 }));
   }, []);
 
   const handlePageChange = page => {
-    dispatch(actions.changePageAction(page));
-    dispatch(actions.articlesAction({ ...params, offset: (page - 1) * pageSize }));
+    dispatch(changePageAction(page));
+    dispatch(articlesAction({ ...params, offset: (page - 1) * pageSize }));
   };
 
   return (

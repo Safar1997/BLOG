@@ -149,7 +149,6 @@ const MyFormikForm = withFormik({
   handleSubmit( values, actions) {
     const { props, setSubmitting } = actions;
     props.actionToDispatch(values);
-    setSubmitting(false);
   }
 })(InnerForm);
 

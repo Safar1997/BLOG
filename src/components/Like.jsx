@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { HeartTwoTone } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
-import * as actions from '../store/actions';
+import { setFavoriteAction, unsetFavoriteAction } from '../store/actions';
 
 const Like = ({ article }) => {
     const dispatch = useDispatch();
     const { favorited, favoritesCount, slug } = article;
     
-    const Like = () => dispatch(actions.setFavoriteAction(slug));
-    const doesntLike = () => dispatch(actions.unsetFavoriteAction(slug));
+    const Like = () => dispatch(setFavoriteAction(slug));
+    const doesntLike = () => dispatch(unsetFavoriteAction(slug));
     return (
       <div>
         <HeartTwoTone

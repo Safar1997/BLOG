@@ -2,15 +2,15 @@ import React from 'react';
 import { Menu } from 'antd';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import * as actions from '../store/actions';
+import { logout, articlesAction } from '../store/actions';
 
 const Navigation = props => {
   const { loggedIn } = useSelector(state => state.user);
   const dispatch = useDispatch();
 
   const handleLogoutClick = () => {
-    dispatch(actions.logout());
-    dispatch(actions.articlesAction({ limit: 10 }));
+    dispatch(logout());
+    dispatch(articlesAction({ limit: 10 }));
   };
 
   return (

@@ -53,6 +53,9 @@ const SignUp = () => {
       .matches(/[0-9]+/, 'Password must contain at least one digit')
       .matches(/[A-Z]+/, 'Password must contain an one uppercase character')
       .required('You must enter password'),
+    passwordConfirmation: Yup.string()
+      .oneOf([Yup.ref('password'), null], 'Passwords must match')
+      .required('You must confirm password'),
     email: Yup.string()
       .email('Invalid email address')
       .required('You must enter email'),
@@ -81,6 +84,7 @@ const SignUp = () => {
             {defaultField('username', 'input', 'input Name', Input, <UserOutlined />)}
             {defaultField('email', 'email', 'input email', Input, <MailOutlined />)}
             {defaultField('password', 'password', 'input password', Input.Password, <LockOutlined />)}
+            {defaultField('passwordConfirmation', 'password', 'Confirm password', Input.Password, <LockOutlined />)}
             <div />
             <Button
               disabled={isSubmitting}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect, Switch, Route } from 'react-router-dom';
 import { Layout } from 'antd';
-import Navbar from '../components/Navigation';
+import Navbar from '../components/Header';
 import Home from './Home';
 import Login from './Login';
 import SignUp from './SignUp';
@@ -20,9 +20,7 @@ const Routes = () => {
       </Header>
       <Content>
         <Switch>
-          <Route exact path="/">
-            <Redirect to="/home" />
-          </Route>
+          <Route exact path="/" component={Home} />
           <Route path="/add" component={AddArticle} />
           <Route path="/articles/:slug/edit" component={ArticleEdit} />
           <Route path="/home" component={Home} />

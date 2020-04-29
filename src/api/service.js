@@ -40,16 +40,16 @@ export const getOneArticle = async slug => {
   return article;
 };
 // we know the specific url, so use put (update article)
-export const editArticle = async (slug, body) => {
-  const response = await api.put(`/articles/${slug}`, { article: body });
+export const editArticle = async (slug, articleInfo) => {
+  const response = await api.put(`/articles/${slug}`, { article: articleInfo });
   const {
     data: { article },
   } = response;
   return article;
 };
 
-export const addArticle = async body => {
-  const response = await api.post('/articles', { article: body });
+export const addArticle = async articleInfo => {
+  const response = await api.post('/articles', { article: articleInfo });
   const {
     data: { article },
   } = response;

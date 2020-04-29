@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Card, Avatar, Button } from 'antd';
-import * as actions from '../store/actions';
+import { articlesAction } from '../store/actions';
 import history from '../history';
 import { UserOutlined } from '@ant-design/icons';
 
@@ -26,7 +26,7 @@ const UserProfile = () => {
         style={{ marginTop: '20px', width: '100%' }}
         type="primary"
         onClick={() => {
-          dispatch(actions.articlesAction({ author: user.username }));
+          dispatch(articlesAction({ author: user.username }));
         }}
       >
         Show my articles
@@ -34,7 +34,7 @@ const UserProfile = () => {
       <Button
         style={{ marginTop: '20px', width: '100%' }}
         type="primary"
-        onClick={() => dispatch(actions.articlesAction({ limit: pageSize }))}
+        onClick={() => dispatch(articlesAction({ limit: pageSize }))}
       >
         Show all articles
       </Button>
@@ -42,7 +42,7 @@ const UserProfile = () => {
         style={{ marginTop: '20px', width: '100%' }}
         type="primary"
         onClick={() =>
-          dispatch(actions.articlesAction({ limit: pageSize, favorited: user.username }))
+          dispatch(articlesAction({ limit: pageSize, favorited: user.username }))
         }
       >
         Show liked

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { isEmpty } from 'lodash';
 import { Spin } from 'antd';
 import ArticleForm from '../components/AddNewArticle';
-import * as actions from '../store/actions';
+import { editArticleAction } from '../store/actions';
 
 const ArticleEdit = ({ match }) => {
   const { slug } = match.params;
@@ -13,9 +13,9 @@ const ArticleEdit = ({ match }) => {
     article: state.articles.articles.find(item => item.slug === slug),
     isLoading: state.articles.isLoading,
   }));
-  const actionToDispatch = values => dispatch(actions.editArticleAction(slug, values));
-  const storageArticle = JSON.parse(localStorage.getItem('openedArticle'));
-  const { title, body, description, tagList } = isEmpty(article) ? storageArticle : article;
+  const actionToDispatch = values => dispatch(editArticleAction(slug, values));
+  // const storageArticle = JSON.parse(localStorage.getItem('openedArticle')); = isEmpty(article) ? storageArticle :
+  const { title, body, description, tagList } = article;
 
   const styles = {
     display: 'flex',

@@ -1,11 +1,11 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import ArticleForm from '../components/AddNewArticle';
-import * as actions from '../store/actions';
+import { addArticleAction } from '../store/actions';
 
 const AddArticle = () => {
   const dispatch = useDispatch();
-  const actionToDispatch = values => dispatch(actions.addArticleAction(values));
+  const actionToDispatch = values => dispatch(addArticleAction(values));
 
   const styles = {
     display: 'flex',

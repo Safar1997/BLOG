@@ -5,13 +5,13 @@ import { useDispatch } from 'react-redux';
 import Like from './Like';
 import history from '../history';
 import { EditOutlined, CloseCircleOutlined } from '@ant-design/icons';
-import * as actions from '../store/actions';
+import { deleteArticleAction } from '../store/actions';
 
-const ArticleActions = ({ article, user }) => {
+const ArticleControlPanel = ({ article, user }) => {
   const { author = {}, slug } = article;
   const dispatch = useDispatch();
   const handleDeleteClick = () => {
-    dispatch(actions.deleteArticleAction(slug));
+    dispatch(deleteArticleAction(slug));
     history.push(`/`);
   };
   return (
@@ -43,14 +43,14 @@ const ArticleActions = ({ article, user }) => {
   );
 };
 
-ArticleActions.propTypes = {
+ArticleControlPanel.propTypes = {
   article: PropTypes.instanceOf(Object),
   user: PropTypes.instanceOf(Object),
 };
 
-ArticleActions.defaultProps = {
+ArticleControlPanel.defaultProps = {
   article: {},
   user: {},
 };
 
-export default ArticleActions;
+export default ArticleControlPanel;
